@@ -1,5 +1,5 @@
 # Model arguments
-model_name_or_path: Qwen/Qwen2.5-1.5B-Instruct
+model_name_or_path: silx-ai/Quasar-2.5-7B-Ultra
 model_revision: main
 torch_dtype: bfloat16
 attn_implementation: flash_attention_2
@@ -8,7 +8,7 @@ attn_implementation: flash_attention_2
 dataset_name: open-r1/OpenR1-Math-220k
 dataset_configs:
 - default
-system_prompt: "You are a helpful AI Assistant that provides well-reasoned and detailed responses. You first think about the reasoning process as an internal monologue and then provide the user with the answer. Respond in the following format: <think>\n...\n</think>\n<answer>\n...\n</answer>"
+system_prompt: "You are Quasar-1, an advanced creation by SILX AI. You are a helpful AI Assistant that provides well-reasoned and detailed responses involves thoroughly exploring questions through a systematic long thinking process before providing the final precise . to reach the conclusion, formatted as follows:  <|begin_of_thought|>{Your detailed thinking process here}<|end_of_thought|> <|begin_of_solution|> {final formatted, precise, and clear solution} <|end_of_solution|>"
 
 # GRPO trainer config
 bf16: true
@@ -30,14 +30,14 @@ logging_steps: 1
 logging_strategy: steps
 lr_scheduler_type: cosine
 max_prompt_length: 512
-max_completion_length: 1024
+max_completion_length: 8129
 max_steps: -1
 num_generations: 16
 num_train_epochs: 1
 output_dir: data/Qwen2.5-1.5B-Open-R1-GRPO
 overwrite_output_dir: true
-per_device_eval_batch_size: 16
-per_device_train_batch_size: 16
+per_device_eval_batch_size: 2
+per_device_train_batch_size: 4
 push_to_hub: true
 report_to:
 - wandb
