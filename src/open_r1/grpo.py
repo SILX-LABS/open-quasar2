@@ -85,7 +85,7 @@ class GRPOScriptArguments(ScriptArguments):
         metadata={"help": "Maximum reward for correct answers"},
     )
     cosine_max_len: int = field(
-        default=1000,
+        default=8129,
         metadata={"help": "Maximum length for scaling"},
     )
     repetition_n_grams: int = field(
@@ -189,7 +189,7 @@ def main(script_args, training_args, model_args):
         trust_remote_code=model_args.trust_remote_code,
         attn_implementation=model_args.attn_implementation,
         torch_dtype=torch_dtype,
-        use_cache=False if training_args.gradient_checkpointing else True,
+        use_cache=True,
     )
     training_args.model_init_kwargs = model_kwargs
 
