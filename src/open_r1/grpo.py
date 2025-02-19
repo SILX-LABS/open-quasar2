@@ -23,6 +23,7 @@ import transformers
 from datasets import load_dataset
 from transformers import set_seed
 from transformers.trainer_utils import get_last_checkpoint
+from transformers import AutoModelForCausalLM, AutoTokenizer
 
 from open_r1.configs import GRPOConfig
 from open_r1.rewards import (
