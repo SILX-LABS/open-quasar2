@@ -191,8 +191,9 @@ def main(script_args, training_args, model_args):
         torch_dtype=torch_dtype,
         use_cache=True,
     )
+    model_kwargs["max_position_embeddings"] = training_args.max_completion_length
     training_args.model_init_kwargs = model_kwargs
-
+    
     #############################
     # Initialize the GRPO trainer
     #############################
