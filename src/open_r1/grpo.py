@@ -194,7 +194,7 @@ def main(script_args, training_args, model_args):
     )
     model = transformers.AutoModelForCausalLM.from_pretrained(model_args.model_name_or_path, **model_kwargs)
     model.config.max_position_embeddings = training_args.max_completion_length
-
+    logger.info(f"🔥 max_position_embeddings set to: {model.config.max_position_embeddings}")
     training_args.model_init_kwargs = model_kwargs
     
     #############################
